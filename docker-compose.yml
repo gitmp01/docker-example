@@ -1,0 +1,15 @@
+version: '3'
+services:
+  redis:
+    image: "redis:5-alpine"
+    volumes:
+      - ./redis-vol:/data
+    ports:
+      - "6379"
+
+  app:
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/home/app/
